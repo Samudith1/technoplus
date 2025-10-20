@@ -1,0 +1,140 @@
+:root{
+  --tp-white: #ffffff;
+  --tp-black: #111111;
+  --tp-fade: rgba(255,255,255,0.08);
+  --tp-shadow: 0 4px 14px rgba(0,0,0,0.12);
+}
+
+/* Fixed, overlays hero */
+.tp-nav{
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  backdrop-filter: saturate(150%) blur(0px);
+  background: transparent;
+  transition: background-color .25s ease, box-shadow .25s ease;
+}
+
+.tp-nav__inner{
+  max-width: 1280px;
+  margin: 0 auto;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+}
+
+.tp-nav__brand img{
+  height: 40px;
+  display: block;
+  transition: opacity .2s ease, filter .2s ease; /* smooth swap */
+}
+
+/* default (at top) -> links look white on hero */
+.tp-nav a, .tp-nav .icon-btn{
+  color: var(--tp-white);
+}
+
+/* links — a little thinner */
+.tp-nav__links{
+  display: flex;
+  gap: 24px;
+}
+.tp-nav__links a{
+  text-decoration: none;
+  font-weight: 400;          /* thinner than before */
+  letter-spacing: .15px;
+  transition: opacity .2s ease, color .2s ease;
+}
+.tp-nav__links a:hover{ opacity: .8; }
+
+/* right icons */
+.icon-btn{
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+.tp-nav__actions{ display:flex; gap: 10px; }
+
+/* when scrolled: white bar + dark text */
+.tp-nav--scrolled{
+  background: var(--tp-white);
+  box-shadow: var(--tp-shadow);
+  backdrop-filter: none;
+}
+.tp-nav--scrolled a,
+.tp-nav--scrolled .icon-btn{
+  color: var(--tp-black);
+}
+
+/* Search bar (pill) */
+.tp-search{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1.5px solid rgba(255,255,255,0.85);
+  color: #fff;
+  background: transparent;
+  transition: border-color .2s ease, background-color .2s ease, color .2s ease;
+  min-width: 180px;
+}
+.tp-search:hover{ background: rgba(255,255,255,0.08); }
+
+.tp-search input{
+  background: transparent;
+  border: none;
+  outline: none;
+  color: inherit;
+  width: 140px;
+  font-size: 14px;
+}
+.tp-search input::placeholder{ color: rgba(255,255,255,0.9); }
+.tp-search__icon{ display: inline-block; }
+
+/* When navbar is scrolled (white background): make it dark-on-light */
+.tp-nav--scrolled .tp-search{
+  border-color: #D0D5DD;
+  color: #111;
+  background: #fff;
+}
+.tp-nav--scrolled .tp-search input::placeholder{ color: #666; }
+
+/* Mobile: collapse width a bit */
+@media (max-width: 640px){
+  .tp-search{ min-width: 140px; padding: 7px 12px; }
+  .tp-search input{ width: 100px; }
+}
+
+/* User profile image */
+.tp-user{
+  width: 34px;
+  height: 34px;
+  padding: 6px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.tp-user:hover{ box-shadow: 0 0 6px rgba(255,255,255,0.6); }
+
+/* When navbar scrolled: darker border */
+.tp-nav--scrolled .tp-user{
+  box-shadow: none;
+}
+
+
+/* Material UI user icon style */
+.tp-usericon {
+  font-size: 32px !important;
+  color: #fff;           /* ← clean hex */
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+.tp-usericon:hover { transform: scale(1.1); }
+
+/* When scrolled */
+.tp-usericon--scrolled { color: #111; }  /* ← clean hex */

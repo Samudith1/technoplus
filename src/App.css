@@ -1,0 +1,10 @@
+html, body, #root { height: 100%; }
+body{
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  color: #111;
+  background: #fff;
+}
+
+/* Prevent content from hiding behind fixed nav if you ever add top sections after hero */
+main{ position: relative; z-index: 0; }
