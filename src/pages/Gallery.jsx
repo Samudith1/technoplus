@@ -20,12 +20,17 @@ export default function Gallery() {
     <>
       <Header />
 
-      {/* 🔹 Hero Section (kept as you requested) */}
-      <section className="gallery-hero" style={{ backgroundImage: `url(${hero})` }}>
+      {/* 🔹 Hero Section */}
+      <section
+        className="gallery-hero"
+        style={{ backgroundImage: `url(${hero})` }}
+      >
         <div className="gallery-hero__overlay">
           <h1>Technoplus Gallery</h1>
         </div>
       </section>
+
+
 
       {/* 🔹 Masonry Image Grid */}
       <main className="gallery-main">
@@ -37,6 +42,14 @@ export default function Gallery() {
           ))}
         </div>
       </main>
+
+      {/* 🔹 Image Count */}
+      <section className="gallery-count">
+        <p>
+          Showing <strong>{images.length}</strong>{" "}
+          {images.length === 1 ? "Image" : "Images"}
+        </p>
+      </section>
     </>
   );
 }
