@@ -166,6 +166,7 @@ export default function Support() {
           />
         </div>
       </section>
+      
     </>
   );
 }

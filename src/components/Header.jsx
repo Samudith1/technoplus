@@ -1,41 +1,53 @@
 import React, { useEffect, useState } from "react";
+import { useLocation, Link } from "react-router-dom";
 import "./Header.css";
-import logoWhite from "../assets/WiteLogo.png";
-import logoBlack from "../assets/BlackLogo.png";
-import SearchBar from "./SearchBar";
+import WhiteLogo from "../assets/WhiteLogo.png";
+import BlackLogo from "../assets/BlackLogo.png";
+import { Search, AccountCircle } from "@mui/icons-material"; // optional if using MUI icons
 
-// ✅ Correct MUI icon import (default export)
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-
-export default function Header() {
+const Header = () => {
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+  const isHome = location.pathname === "/";
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 10);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    if (isHome) {
+      const handleScroll = () => setScrolled(window.scrollY > 50);
+      window.addEventListener("scroll", handleScroll);
+      return () => window.removeEventListener("scroll", handleScroll);
+    } else {
+      setScrolled(true); // always white bar for other pages
+    }
+  }, [isHome]);
 
   return (
     <header className={`tp-nav ${scrolled ? "tp-nav--scrolled" : ""}`}>
       <div className="tp-nav__inner">
-        <a href="/" className="tp-nav__brand">
-          <img src={scrolled ? logoBlack : logoWhite} alt="Technoplus" />
-        </a>
+        {/* Logo */}
+        <Link to="/" className="tp-nav__brand">
+          <img
+            src={scrolled ? BlackLogo : WhiteLogo}
+            alt="Technoplus Logo"
+          />
+        </Link>
 
+        {/* Links */}
         <nav className="tp-nav__links">
-          <a href="/store">Products</a>
-          <a href="/gallery">Our Gallery</a>
-          <a href="#where-to-buy">Where to Buy</a>
-          <a href="/support">Support</a>
-          <a href="#/product">AboutUs</a>
+          <Link to="/">Home</Link>
+          <Link to="/product">Products</Link>
+          <Link to="/gallery">Our Gallery</Link>
+          <Link to="/where-to-buy">Where to Buy</Link>
+          <Link to="/support">Support</Link>
+          <Link to="/about">About Us</Link>
         </nav>
 
+        {/* Right Actions */}
         <div className="tp-nav__actions">
           
         </div>
       </div>
     </header>
   );
-}
+};
+
+export default Header;

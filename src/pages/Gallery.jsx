@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 import "./gallery.css";
 import hero from "../assets/gallery.png"; // hero banner image
 
@@ -50,6 +51,8 @@ export default function Gallery() {
           {images.length === 1 ? "Image" : "Images"}
         </p>
       </section>
+      <Footer />
+      
     </>
   );
 }

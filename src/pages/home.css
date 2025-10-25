@@ -332,13 +332,16 @@
   max-width: 1200px;
   margin: 0 auto;
 }
-.tp-categories__title{
-  text-align:center;
+.tp-categories__title {
+  text-align: center;
   margin: 0 0 24px;
-  font-size: 32px;          /* bigger like DJI */
-  font-weight: 800;
+  font-size: 32px;
+  font-weight: 600; /* 600 = Semibold */
   letter-spacing: .2px;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display",
+               "Helvetica Neue", Arial, sans-serif;
 }
+
 
 .tp-categories__grid{
   display:grid;

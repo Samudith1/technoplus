@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./home.css";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
+
 
 // Example hero images
 import hero1 from "../assets/hero.jpg";
@@ -111,10 +113,10 @@ export default function Home() {
             {/* FEATURE GRID SECTION */}
             <section className="tp-grid">
                 <div className="tp-grid__inner">
-                    <div className="tp-grid__item">Card 1</div>
-                    <div className="tp-grid__item">Card 2</div>
-                    <div className="tp-grid__item">Card 3</div>
-                    <div className="tp-grid__item">Card 4</div>
+                    <div className="tp-grid__item">Product 01</div>
+                    <div className="tp-grid__item">Product 02</div>
+                    <div className="tp-grid__item">Product 03</div>
+                    <div className="tp-grid__item">Product 04</div>
                 </div>
             </section>
 
@@ -249,6 +251,8 @@ export default function Home() {
                     </div>
                 </div>
             </section>
+            <Footer />
+
 
         </>
     );
